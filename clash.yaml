@@ -1,11 +1,11 @@
-# 📱 Clash Meta 安卓专用高配配置
+# 📱 Clash Meta 安卓高配版｜智能分流+双选节点
 mixed-port: 7890
 allow-lan: true
 log-level: info
 external-controller: 127.0.0.1:9090
 mode: rule
 
-# 🔒 安全DNS防污染
+# 🔒 防污染DNS配置
 dns:
   enable: true
   listen: 0.0.0.0:53
@@ -19,7 +19,7 @@ dns:
     - 8.8.8.8
     - 1.1.1.1
 
-# 🗂️ 全部节点列表
+# 🗂️ 你的全部节点列表
 proxies:
   - {"name":"v2ray 台湾(移动) [Netflix]","type":"vmess","server":"v3.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26604,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
   - {"name":"v2ray 台湾(联通) [Netflix]","type":"vmess","server":"v4.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26604,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
@@ -38,8 +38,9 @@ proxies:
   - {"name":"v2ray 香港HKT(移动) [Netflix]","type":"vmess","server":"v3.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26605,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
   - {"name":"v2ray 香港HKT(联通) [Netflix]","type":"vmess","server":"v4.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26605,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
 
-# 🎯 策略分组（表情美化+双智能模式）
+# 🎯 策略组｜自动+手动双模式
 proxy-groups:
+  # ⚡ 自动优选｜最低延迟智能切换（自动模式）
   - name: "⚡自动优选节点"
     type: url-test
     proxies:
@@ -85,23 +86,42 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 60
 
-  - name: "🎮手动切换节点"
+  # 🎮 手动选择｜自由切换节点（手动模式）
+  - name: "🎮手动选择节点"
     type: select
     proxies:
       - "⚡自动优选节点"
       - "🛡️故障备用线路"
+      - "v2ray 台湾(移动) [Netflix]"
+      - "v2ray 台湾(联通) [Netflix]"
+      - "v2ray 德国(移动) [Netflix]"
+      - "v2ray 德国(联通) [Netflix]"
+      - "v2ray 新加坡(移动) [Netflix]"
+      - "v2ray 新加坡(联通) [Netflix]"
+      - "v2ray 日本(移动) [Netflix]"
+      - "v2ray 日本(联通) [Netflix]"
+      - "v2ray 美国(移动) [Netflix]"
+      - "v2ray 美国(联通) [Netflix]"
+      - "v2ray 香港(移动) [Netflix]"
+      - "v2ray 香港(联通) [Netflix]"
+      - "v2ray 香港HGC(移动) [Netflix]"
+      - "v2ray 香港HGC(联通) [Netflix]"
+      - "v2ray 香港HKT(移动) [Netflix]"
+      - "v2ray 香港HKT(联通) [Netflix]"
 
+  # 🌏 海外专用｜走优选节点
   - name: "🌏海外网络通道"
     type: select
     proxies:
-      - "⚡自动优选节点"
+      - "🎮手动选择节点"
 
+  # 🇨🇳 国内直连｜原生网速
   - name: "🇨🇳内地直连网络"
     type: select
     proxies:
       - DIRECT
 
-# 🧭 全局智能分流规则
+# 🧭 智能分流规则
 rules:
   - DOMAIN-SUFFIX,baidu.com,🇨🇳内地直连网络
   - DOMAIN-SUFFIX,qq.com,🇨🇳内地直连网络
