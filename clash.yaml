@@ -1,13 +1,11 @@
-# 📱 安卓Clash Meta 通用优化配置
+# 📱 Clash Meta 安卓专用高配配置
 mixed-port: 7890
 allow-lan: true
 log-level: info
 external-controller: 127.0.0.1:9090
-
-# 🚦 规则模式 = 开启全局智能分流
 mode: rule
 
-# 🔒 纯净防污染DNS
+# 🔒 安全DNS防污染
 dns:
   enable: true
   listen: 0.0.0.0:53
@@ -21,42 +19,89 @@ dns:
     - 8.8.8.8
     - 1.1.1.1
 
-# 🗂️ 此处粘贴你的全部节点
+# 🗂️ 全部节点列表
 proxies:
+  - {"name":"v2ray 台湾(移动) [Netflix]","type":"vmess","server":"v3.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26604,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
+  - {"name":"v2ray 台湾(联通) [Netflix]","type":"vmess","server":"v4.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26604,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
+  - {"name":"v2ray 德国(移动) [Netflix]","type":"vmess","server":"v3.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26611,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
+  - {"name":"v2ray 德国(联通) [Netflix]","type":"vmess","server":"v4.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26611,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
+  - {"name":"v2ray 新加坡(移动) [Netflix]","type":"vmess","server":"v3.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26603,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
+  - {"name":"v2ray 新加坡(联通) [Netflix]","type":"vmess","server":"v4.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26603,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
+  - {"name":"v2ray 日本(移动) [Netflix]","type":"vmess","server":"v3.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26601,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
+  - {"name":"v2ray 日本(联通) [Netflix]","type":"vmess","server":"v4.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26601,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
+  - {"name":"v2ray 美国(移动) [Netflix]","type":"vmess","server":"v3.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26606,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
+  - {"name":"v2ray 美国(联通) [Netflix]","type":"vmess","server":"v4.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26606,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
+  - {"name":"v2ray 香港(移动) [Netflix]","type":"vmess","server":"v3.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26607,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
+  - {"name":"v2ray 香港(联通) [Netflix]","type":"vmess","server":"v4.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26607,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
+  - {"name":"v2ray 香港HGC(移动) [Netflix]","type":"vmess","server":"v3.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26608,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
+  - {"name":"v2ray 香港HGC(联通) [Netflix]","type":"vmess","server":"v4.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26608,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
+  - {"name":"v2ray 香港HKT(移动) [Netflix]","type":"vmess","server":"v3.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26605,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
+  - {"name":"v2ray 香港HKT(联通) [Netflix]","type":"vmess","server":"v4.xn--fiq7vs5ve3c2t1av0lei0e.com","port":26605,"uuid":"333906f5-8744-337e-b2f2-a9bf44fea96f","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-path":"","ws-headers":{"Host":"ixigua.com"},"ws-opts":{"path":"","headers":{"Host":"ixigua.com"}}}
 
-# 🎯 代理策略组（智能选线核心）
+# 🎯 策略分组（表情美化+双智能模式）
 proxy-groups:
-  # ⚡自动优选｜最低延迟智能切换
   - name: "⚡自动优选节点"
     type: url-test
-    proxies: 
+    proxies:
+      - "v2ray 台湾(移动) [Netflix]"
+      - "v2ray 台湾(联通) [Netflix]"
+      - "v2ray 德国(移动) [Netflix]"
+      - "v2ray 德国(联通) [Netflix]"
+      - "v2ray 新加坡(移动) [Netflix]"
+      - "v2ray 新加坡(联通) [Netflix]"
+      - "v2ray 日本(移动) [Netflix]"
+      - "v2ray 日本(联通) [Netflix]"
+      - "v2ray 美国(移动) [Netflix]"
+      - "v2ray 美国(联通) [Netflix]"
+      - "v2ray 香港(移动) [Netflix]"
+      - "v2ray 香港(联通) [Netflix]"
+      - "v2ray 香港HGC(移动) [Netflix]"
+      - "v2ray 香港HGC(联通) [Netflix]"
+      - "v2ray 香港HKT(移动) [Netflix]"
+      - "v2ray 香港HKT(联通) [Netflix]"
     url: http://www.gstatic.com/generate_204
     interval: 30
     tolerance: 50
 
-  # 🛡️故障兜底｜断线自动轮换
   - name: "🛡️故障备用线路"
     type: fallback
-    proxies: 
+    proxies:
+      - "v2ray 台湾(移动) [Netflix]"
+      - "v2ray 台湾(联通) [Netflix]"
+      - "v2ray 德国(移动) [Netflix]"
+      - "v2ray 德国(联通) [Netflix]"
+      - "v2ray 新加坡(移动) [Netflix]"
+      - "v2ray 新加坡(联通) [Netflix]"
+      - "v2ray 日本(移动) [Netflix]"
+      - "v2ray 日本(联通) [Netflix]"
+      - "v2ray 美国(移动) [Netflix]"
+      - "v2ray 美国(联通) [Netflix]"
+      - "v2ray 香港(移动) [Netflix]"
+      - "v2ray 香港(联通) [Netflix]"
+      - "v2ray 香港HGC(移动) [Netflix]"
+      - "v2ray 香港HGC(联通) [Netflix]"
+      - "v2ray 香港HKT(移动) [Netflix]"
+      - "v2ray 香港HKT(联通) [Netflix]"
     url: http://www.gstatic.com/generate_204
     interval: 60
 
-  # 🎮手动自选｜自由切换线路
   - name: "🎮手动切换节点"
     type: select
-    proxies: ["⚡自动优选节点","🛡️故障备用线路"]
+    proxies:
+      - "⚡自动优选节点"
+      - "🛡️故障备用线路"
 
-  # 🌍外网专用｜统一走代理通道
   - name: "🌏海外网络通道"
     type: select
-    proxies: ["⚡自动优选节点"]
+    proxies:
+      - "⚡自动优选节点"
 
-  # 🇨🇳国内直连｜原生网速不加速
   - name: "🇨🇳内地直连网络"
     type: select
-    proxies: ["DIRECT"]
+    proxies:
+      - DIRECT
 
-# 🧭 智能分流规则（国内直连 海外代理）
+# 🧭 全局智能分流规则
 rules:
   - DOMAIN-SUFFIX,baidu.com,🇨🇳内地直连网络
   - DOMAIN-SUFFIX,qq.com,🇨🇳内地直连网络
