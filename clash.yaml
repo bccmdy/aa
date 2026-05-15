@@ -1,0 +1,72 @@
+# 📱 安卓Clash Meta 通用优化配置
+mixed-port: 7890
+allow-lan: true
+log-level: info
+external-controller: 127.0.0.1:9090
+
+# 🚦 规则模式 = 开启全局智能分流
+mode: rule
+
+# 🔒 纯净防污染DNS
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  fallback:
+    - 8.8.8.8
+    - 1.1.1.1
+
+# 🗂️ 此处粘贴你的全部节点
+proxies:
+
+# 🎯 代理策略组（智能选线核心）
+proxy-groups:
+  # ⚡自动优选｜最低延迟智能切换
+  - name: "⚡自动优选节点"
+    type: url-test
+    proxies: 
+    url: http://www.gstatic.com/generate_204
+    interval: 30
+    tolerance: 50
+
+  # 🛡️故障兜底｜断线自动轮换
+  - name: "🛡️故障备用线路"
+    type: fallback
+    proxies: 
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+
+  # 🎮手动自选｜自由切换线路
+  - name: "🎮手动切换节点"
+    type: select
+    proxies: ["⚡自动优选节点","🛡️故障备用线路"]
+
+  # 🌍外网专用｜统一走代理通道
+  - name: "🌏海外网络通道"
+    type: select
+    proxies: ["⚡自动优选节点"]
+
+  # 🇨🇳国内直连｜原生网速不加速
+  - name: "🇨🇳内地直连网络"
+    type: select
+    proxies: ["DIRECT"]
+
+# 🧭 智能分流规则（国内直连 海外代理）
+rules:
+  - DOMAIN-SUFFIX,baidu.com,🇨🇳内地直连网络
+  - DOMAIN-SUFFIX,qq.com,🇨🇳内地直连网络
+  - DOMAIN-SUFFIX,wechat.com,🇨🇳内地直连网络
+  - DOMAIN-SUFFIX,taobao.com,🇨🇳内地直连网络
+  - DOMAIN-SUFFIX,alipay.com,🇨🇳内地直连网络
+  - DOMAIN-SUFFIX,jd.com,🇨🇳内地直连网络
+  - DOMAIN-SUFFIX,163.com,🇨🇳内地直连网络
+  - DOMAIN-SUFFIX,sina.com,🇨🇳内地直连网络
+  - DOMAIN-SUFFIX,gov.cn,🇨🇳内地直连网络
+  - DOMAIN-SUFFIX,edu.cn,🇨🇳内地直连网络
+  - GEOIP,CN,🇨🇳内地直连网络
+  - MATCH,🌏海外网络通道
